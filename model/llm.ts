@@ -1,8 +1,8 @@
-import { ChatGroq } from "@langchain/groq"
-export const llm = new ChatGroq({
-    model: "openai/gpt-oss-120b",
-    temperature: 0.7,
-    maxTokens: undefined,
-    maxRetries: 2,
-    // other params...
+import { ChatOpenAI } from "@langchain/openai";
+
+ 
+export const llm = new ChatOpenAI({
+  model: "gpt-5.4-nano-2026-03-17",
+  temperature: 0.5,
+  // other params...
 })
