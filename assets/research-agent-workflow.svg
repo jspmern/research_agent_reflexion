@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="800" height="520">
+  <style>
+    .box { fill:#ffffff; stroke:#2f4f4f; stroke-width:3; }
+    .title { font: bold 24px sans-serif; fill:#2f4f4f; }
+    .text { font: 16px sans-serif; fill:#2f4f4f; }
+    .arrow { stroke:#2f4f4f; stroke-width:3; fill:none; marker-end:url(#arrowhead); }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L12,4 L0,8 Z" fill="#2f4f4f" />
+    </marker>
+  </defs>
+  <rect class="box" x="40" y="40" width="220" height="105" rx="18" />
+  <rect class="box" x="290" y="40" width="220" height="105" rx="18" />
+  <rect class="box" x="540" y="40" width="220" height="105" rx="18" />
+  <rect class="box" x="290" y="220" width="220" height="105" rx="18" />
+  <text class="title" x="150" y="75" text-anchor="middle">User Prompt</text>
+  <text class="text" x="150" y="105" text-anchor="middle">Input question or topic</text>
+  <text class="title" x="400" y="75" text-anchor="middle">Responder</text>
+  <text class="text" x="400" y="105" text-anchor="middle">Generate answer + reflection</text>
+  <text class="title" x="650" y="75" text-anchor="middle">Search</text>
+  <text class="text" x="650" y="105" text-anchor="middle">Execute queries via Tavily</text>
+  <text class="title" x="400" y="255" text-anchor="middle">Reviser</text>
+  <text class="text" x="400" y="285" text-anchor="middle">Improve answer using evidence</text>
+  <path class="arrow" d="M260,95 L290,95" />
+  <path class="arrow" d="M510,95 L540,95" />
+  <path class="arrow" d="M400,145 L400,220" />
+  <path class="arrow" d="M400,325 L400,380" />
+  <circle cx="400" cy="430" r="45" fill="#f0f8ff" stroke="#2f4f4f" stroke-width="3" />
+  <text class="title" x="400" y="438" text-anchor="middle">Done</text>
+  <path class="arrow" d="M400,330 L400,385" />
+  <path class="arrow" d="M520,245 L700,245" />
+  <path class="arrow" d="M700,245 L700,420" />
+  <path class="arrow" d="M700,420 L445,420" />
+</svg>
