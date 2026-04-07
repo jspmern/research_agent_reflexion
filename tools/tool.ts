@@ -1,14 +1,29 @@
+import { HumanMessage } from "@langchain/core/messages";
 import type { StateAnnotation } from "../state/State";
 import { TavilySearch } from "@langchain/tavily";
 
-const tool = new TavilySearch({
+const search = new TavilySearch({
   maxResults: 2,
   topic: "general",
 });
 
-export function searchExecutorTool(state : typeof StateAnnotation.State) {
+export async function searchExecutorTool(state : typeof StateAnnotation.State) {
     //console.log("state is",state.messages[state.messages.length-1]?.content)
     const parseData= JSON.parse(state.messages[state.messages.length-1]?.content )
-    console.log("search query is",parseData.searchQueries)
-    return state
+     const response= await search.batch(parseData.searchQueries.map((query:string)=>({ query })))
+        const cleanedResults = [];
+        response.map((res)=>{
+            const query = res.query;
+            res.results.map((result:any)=>{
+                cleanedResults.push({
+                    query,
+                    title: result.title,
+                    url: result.url,
+                    content: result.content,
+                })
+            })
+        })
+    return {
+        messages:  [new HumanMessage(JSON.stringify({ searchResults: cleanedResults }))]
+    }
 }
