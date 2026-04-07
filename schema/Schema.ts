@@ -9,8 +9,11 @@ export const questionAnswerSchema = z.object({
     answer: z.string().describe('~250 word detailed answer to the question.'),
     reflection: reflectionSchema,
     searchQueries: z
-        .array(z.string())
+        .array(z.string()).min(1).max(3)
         .describe(
             '1-3 search queries for researching improvements to address the critique of your current answer.'
         ),
 });
+
+
+ 
